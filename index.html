@@ -368,6 +368,22 @@
             max-width: 260px;
         }
 
+        /* Enhanced logo crossfade: opacity + scale + blur */
+        .vp-footer__logo .fade-image {
+            opacity: 0;
+            transform: scale(0.92);
+            filter: blur(6px);
+            transition:
+                opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .vp-footer__logo .fade-image.active {
+            opacity: 1;
+            transform: scale(1);
+            filter: blur(0px);
+        }
+
         .vp-footer__tagline {
             font-family: 'Merriweather', serif;
             font-style: italic;
@@ -1078,7 +1094,7 @@
             <span class="vp-footer__sep">|</span>
             <span>Woodlands Office Park, Johannesburg, South Africa</span>
             <span class="vp-footer__sep">|</span>
-            <span>&copy; 2025 VASTPOINT</span>
+            <span>&copy; 2026 VASTPOINT</span>
         </div>
 
     </footer>
