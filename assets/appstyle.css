@@ -115,19 +115,19 @@ html, body {
     }
 
         #features-card .feature-card:nth-of-type(1) {
-            background-image: url(/assets/Terra_A_DATA.jpg)
+            background-image: url(./Terra_A_DATA.jpg)
         }
 
         #features-card .feature-card:nth-of-type(2) {
-            background-image: url(/assets/Terra_A_Community.jpg)
+            background-image: url(./Terra_A_Community.jpg)
         }
 
         #features-card .feature-card:nth-of-type(3) {
-            background-image: url(/assets/Terra_A_Mapping.jpg)
+            background-image: url(./Terra_A_Mapping.jpg)
         }
 
         #features-card .feature-card:nth-of-type(4) {
-            background-image: url(/assets/Terra_A_Property.jpg)
+            background-image: url(./Terra_A_Property.jpg)
         }
 
 .impact-list-item:nth-last-of-type(5) {
