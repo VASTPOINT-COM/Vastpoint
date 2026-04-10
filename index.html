@@ -361,8 +361,11 @@
         .vp-footer__logo {
             margin-bottom: 40px;
         }
+        /* Override appstyle: give the container a real height so
+           absolutely-positioned logo images don't collapse into zero */
         .vp-footer__logo .image-container {
-            display: inline-block;
+            height: 70px;
+            max-width: 260px;
         }
 
         .vp-footer__tagline {
