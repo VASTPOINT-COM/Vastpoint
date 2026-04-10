@@ -1293,7 +1293,7 @@ footer{
 /* Hero Section with Parallax Effect */
 #hero {
     min-height: 48rem;
-    background: url('/assets/COVER_PAGE_PIC1.jpg') center center / cover no-repeat fixed;
+    background: url('./COVER_PAGE_PIC1.jpg') center center / cover no-repeat fixed;
     background-color: darkgreen;
     color: white;
     display: flex;
