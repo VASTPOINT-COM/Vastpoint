@@ -335,10 +335,34 @@
         }
 
         /* =============================================
-           FOOTER — match navbar gradient
+           FOOTER — match navbar gradient + typography
         ============================================= */
         footer.bg-dark-green {
             background: linear-gradient(90deg, #002734 0%, #173a63 100%) !important;
+        }
+
+        .footer-tagline {
+            font-family: 'Merriweather', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 1.15rem;
+            color: #ffffff;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-brand-badge {
+            display: inline-block;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #a9d678;
+            border: 1px solid rgba(169, 214, 120, 0.35);
+            border-radius: 2px;
+            padding: 4px 14px;
         }
 
         /* =============================================
@@ -930,12 +954,11 @@
 
                     </div>
                     <!--<img height="54px" alt="logo" src="/assets/Vastpoint_Logo_Horizontal.jpg">-->
-                    <div class="text-base color-white py-3">
-                        <p class="text-base color-white py-4">
-                            <i>At VASTPOINT, the macro and micro </i><br>
-                            <i>live in perfect harmony</i><br>
-                            Terra Vital, a VASTPOINT brand
+                    <div class="py-4">
+                        <p class="footer-tagline">
+                            "At VASTPOINT, the macro and micro live in perfect harmony"
                         </p>
+                        <span class="footer-brand-badge">Terra Vital &mdash; a VASTPOINT brand</span>
                     </div>
                     <div class="d-flex gap-4 justify-content-center   flex-wrap">
                         <a href="#about" class="color-light-green text-decoration-none footer-link text-uppercase">About</a>
