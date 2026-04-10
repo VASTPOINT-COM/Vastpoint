@@ -335,34 +335,100 @@
         }
 
         /* =============================================
-           FOOTER — match navbar gradient + typography
+           FOOTER
         ============================================= */
         footer.bg-dark-green {
-            background: linear-gradient(90deg, #002734 0%, #173a63 100%) !important;
+            background: linear-gradient(135deg, #002734 0%, #173a63 100%) !important;
+        }
+
+        .footer-accent-line {
+            height: 3px;
+            background: linear-gradient(90deg, #37a145 0%, #a9d678 50%, transparent 100%);
+        }
+
+        .footer-col-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #a9d678;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(169,214,120,0.25);
         }
 
         .footer-tagline {
             font-family: 'Merriweather', serif;
             font-style: italic;
             font-weight: 300;
-            font-size: 1.15rem;
-            color: #ffffff;
-            line-height: 1.7;
-            letter-spacing: 0.01em;
-            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+            margin-bottom: 1rem;
         }
 
         .footer-brand-badge {
             display: inline-block;
             font-family: 'Roboto', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 500;
             letter-spacing: 0.18em;
             text-transform: uppercase;
             color: #a9d678;
-            border: 1px solid rgba(169, 214, 120, 0.35);
+            border: 1px solid rgba(169,214,120,0.35);
             border-radius: 2px;
             padding: 4px 14px;
+        }
+
+        .footer-nav-link {
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.25s ease, padding-left 0.25s ease;
+        }
+        .footer-nav-link:hover {
+            color: #a9d678;
+            padding-left: 6px;
+        }
+
+        .footer-contact-link {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.25s ease;
+        }
+        .footer-contact-link:hover { color: #a9d678; }
+
+        .footer-address {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.9;
+        }
+
+        .footer-icon {
+            width: 16px;
+            height: 16px;
+            color: #37a145;
+            flex-shrink: 0;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(169,214,120,0.3) 50%, transparent 100%);
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 0.05em;
         }
 
         /* =============================================
@@ -945,45 +1011,66 @@
     </section>-->
 
     <footer class="bg-dark-green">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8 col-xl-6 text-center">
-                    <div class="image-container d-flex justify-content-center mb-4">
-                        <img class="fade-image active" src="assets/Vastpoint_Logo_Horizontal.jpg" alt="logo">
-                        <img class="fade-image" src="assets/Vastpoint_terravital.png" alt="logo">
+        <!-- Green accent line at top -->
+        <div class="footer-accent-line"></div>
 
+        <div class="container py-5">
+            <div class="row gy-5 footer-cols">
+
+                <!-- Col 1: Logo + Tagline -->
+                <div class="col-12 col-md-5 col-xl-4 footer-col">
+                    <div class="image-container mb-4">
+                        <img class="fade-image active" src="assets/Vastpoint_Logo_Horizontal.jpg" alt="Vastpoint logo">
+                        <img class="fade-image" src="assets/Vastpoint_terravital.png" alt="Terra Vital logo">
                     </div>
-                    <!--<img height="54px" alt="logo" src="/assets/Vastpoint_Logo_Horizontal.jpg">-->
-                    <div class="py-4">
-                        <p class="footer-tagline">
-                            "At VASTPOINT, the macro and micro live in perfect harmony"
-                        </p>
-                        <span class="footer-brand-badge">Terra Vital &mdash; a VASTPOINT brand</span>
-                    </div>
-                    <div class="d-flex gap-4 justify-content-center   flex-wrap">
-                        <a href="#about" class="color-light-green text-decoration-none footer-link text-uppercase">About</a>
-                        <span class="fw-bold color-white">|</span>
-                        <a href="#experience" class="color-light-green text-decoration-none footer-link text-uppercase">Experience</a>
-                        <span class="fw-bold color-white">|</span>
-                        <a href="#impact" class="color-light-green text-decoration-none footer-link text-uppercase">Impact</a>
-                        <span class="fw-bold color-white">|</span>
-                        <a href="#team" class="color-light-green text-decoration-none footer-link text-uppercase">Team</a>
-                        <span class="fw-bold color-white">|</span>
-                        <a class="color-light-green text-decoration-none footer-link text-uppercase" download="terra-vital-art-challenge-jan-24.pdf" href="terra-vital-art-challenge-jan-24.pdf">Art Challenge</a>
+                    <p class="footer-tagline">
+                        "At VASTPOINT, the macro and micro live in perfect harmony"
+                    </p>
+                    <span class="footer-brand-badge">Terra Vital &mdash; a VASTPOINT brand</span>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div class="col-12 col-md-3 col-xl-4 footer-col d-flex flex-column align-items-md-center">
+                    <h6 class="footer-col-heading">Navigation</h6>
+                    <nav class="d-flex flex-column gap-2">
+                        <a href="#about"      class="footer-nav-link">About</a>
+                        <a href="#experience" class="footer-nav-link">Experience</a>
+                        <a href="#impact"     class="footer-nav-link">Impact</a>
+                        <a href="assets/terra-vital-art-challenge-jan-24.pdf" class="footer-nav-link" download>Art Challenge</a>
+                        <a href="assets/Vastpoint_Newsletter_Q2-2025.pdf"    class="footer-nav-link" download>Newsletter</a>
+                    </nav>
+                </div>
+
+                <!-- Col 3: Contact -->
+                <div class="col-12 col-md-4 col-xl-4 footer-col">
+                    <h6 class="footer-col-heading">Contact</h6>
+                    <div class="d-flex flex-column gap-3">
+                        <a href="mailto:info@vastpoint.com" class="footer-contact-link">
+                            <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            info@vastpoint.com
+                        </a>
+                        <div class="footer-contact-link align-items-start">
+                            <svg class="footer-icon mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+                            <p class="footer-address m-0">
+                                Building 15, 2nd Floor<br>
+                                Woodlands Office Park<br>
+                                20 Woodlands Drive<br>
+                                Johannesburg, South Africa
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="bg-black py-3 d-flex align-items-center flex-column flex-md-row justify-content-between px-5">
-            <div class="d-flex gap-md-4 justify-content-center text-small flex-grow-1 flex-wrap flex-column flex-md-row align-items-center mb-4 mb-md-0">
-                <a href="mailto:Info@vital-terra.com" class="color-white text-decoration-none footer-link">info@vastpoint.com</a>
-                <span class="d-none d-md-block fw-bold color-white">|</span>
-                <p class="color-white text-decoration-none m-0">
-                    Address: Building 15 2nd floor, Woodlands Office Park, 20 Woodlands Drive, Woodlands, Johannesburg, South Africa
-                </p>
+
             </div>
 
-            <p class="d-md-none text-small color-white mt-4">Copyright @ 2025</p>
+            <!-- Divider -->
+            <div class="footer-divider my-5"></div>
+
+            <!-- Bottom bar -->
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <p class="m-0 footer-copy">&copy; 2025 VASTPOINT. All rights reserved.</p>
+                <p class="m-0 footer-copy">Johannesburg, South Africa</p>
+            </div>
         </div>
     </footer>
 
@@ -1221,7 +1308,59 @@
     })();
 
     /* ============================================================
-       8. LOGO ANIMATION
+       8. FOOTER — stagger column reveal on scroll
+    ============================================================ */
+    (function initFooter() {
+        var cols = gsap.utils.toArray('.footer-col');
+        if (!cols.length) return;
+        gsap.set(cols, { opacity: 0, y: 40 });
+        gsap.to(cols, {
+            opacity: 1, y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            stagger: 0.18,
+            scrollTrigger: {
+                trigger: 'footer',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        // Accent line animates width from 0
+        var accent = document.querySelector('.footer-accent-line');
+        if (accent) {
+            gsap.set(accent, { scaleX: 0, transformOrigin: 'left center' });
+            gsap.to(accent, {
+                scaleX: 1,
+                duration: 1.2,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: 'footer',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        }
+
+        // Divider line animates width from center
+        var divider = document.querySelector('.footer-divider');
+        if (divider) {
+            gsap.set(divider, { scaleX: 0, transformOrigin: 'center center' });
+            gsap.to(divider, {
+                scaleX: 1,
+                duration: 1.0,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.footer-divider',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        }
+    })();
+
+    /* ============================================================
+       9. LOGO ANIMATION
     ============================================================ */
     window.addEventListener('load', function() {
         var logo = document.querySelector('.logo-animate');
