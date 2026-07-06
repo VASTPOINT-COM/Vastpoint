@@ -220,6 +220,59 @@
         .navbar-nav .nav-item a.footer-link:hover::after { width: 100%; }
         .navbar-nav .nav-item:hover { background: transparent !important; }
 
+        /* Legal/Policies dropdown + PAIA submenu */
+        .vp-dropdown-menu {
+            background: linear-gradient(90deg, rgba(0,39,52,0.98) 0%, rgba(23,58,99,0.98) 100%);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 210px;
+        }
+        .vp-dropdown-item {
+            color: #fff;
+            padding: 0.55rem 1.25rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            background: transparent;
+        }
+        .vp-dropdown-item:hover, .vp-dropdown-item:focus {
+            background: rgba(255,255,255,0.08);
+            color: #a9d678;
+        }
+        .dropdown-submenu { position: relative; }
+        .vp-submenu-menu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin-top: -0.5rem;
+        }
+        .dropdown-submenu.show > .vp-submenu-menu { display: block; }
+        .vp-submenu-toggle::after { transform: rotate(-90deg); }
+
+        /* Open Legal/Policies (and its PAIA submenu) on hover, desktop only */
+        @media (min-width: 992px) {
+            .navbar-nav .nav-item.dropdown:hover > .vp-dropdown-menu {
+                display: block;
+                margin-top: 0;
+            }
+            .dropdown-submenu:hover > .vp-submenu-menu {
+                display: block;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .vp-dropdown-menu {
+                position: static !important;
+                background: rgba(255,255,255,0.05);
+                border: none;
+                box-shadow: none;
+                margin: 0.25rem 0 0 1rem;
+                min-width: unset;
+            }
+            .vp-submenu-menu { margin-left: 1rem; }
+        }
+
         /* =============================================
            HERO — animated gradient mesh background
         ============================================= */
@@ -478,6 +531,14 @@
         }
         .vp-footer__sep {
             color: rgba(255,255,255,0.15);
+        }
+        .vp-footer__bottom-link {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+        .vp-footer__bottom-link:hover {
+            color: #a9d678;
         }
 
         /* =============================================
@@ -1178,6 +1239,19 @@
                 <a href="#contact"   class="vp-footer__link">Contact</a>
                 <a href="assets/terra-vital-art-challenge-jan-24.pdf" class="vp-footer__link" download>Art Challenge</a>
                 <a href="assets/Vastpoint_Newsletter_Q2-2025.pdf" class="vp-footer__link" download>Newsletter</a>
+                <div class="dropup vp-footer__dropdown">
+                    <a class="vp-footer__link dropdown-toggle" href="#" id="footerLegalDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Legal/Policies</a>
+                    <ul class="dropdown-menu vp-dropdown-menu" aria-labelledby="footerLegalDropdown">
+                        <li><a class="dropdown-item vp-dropdown-item" href="#">Privacy Policy</a></li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item vp-dropdown-item vp-submenu-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">PAIA</a>
+                            <ul class="dropdown-menu vp-dropdown-menu vp-submenu-menu">
+                                <li><a class="dropdown-item vp-dropdown-item" href="assets/Vastpoint-PAIA-Manual.pdf" target="_blank" rel="noopener">PAIA Manual</a></li>
+                                <li><a class="dropdown-item vp-dropdown-item" href="assets/PAIA-Request-Form.pdf" target="_blank" rel="noopener">PAIA Request Form</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </nav>
 
         </div>
@@ -1187,6 +1261,8 @@
             <span>info@vastpoint.com</span>
             <span class="vp-footer__sep">|</span>
             <span>Address: Building 15 2nd floor, Woodlands Office Park, 20 Woodlands Drive, Woodlands, Johannesburg, South Africa</span>
+            <span class="vp-footer__sep">|</span>
+            <span><a href="assets/Vastpoint-PAIA-Manual.pdf" class="vp-footer__bottom-link" target="_blank" rel="noopener">PAIA Manual</a></span>
             <span class="vp-footer__sep">|</span>
             <span>&copy; 2026 VASTPOINT</span>
         </div>
@@ -1540,6 +1616,30 @@
             .finally(function() {
                 btn.disabled = false;
                 btn.textContent = 'Send Message';
+            });
+        });
+    })();
+
+    /* ============================================================
+       11. PAIA SUBMENU — toggle nested dropdown on click
+    ============================================================ */
+    (function initPaiaSubmenu() {
+        document.querySelectorAll('.vp-submenu-toggle').forEach(function(toggle) {
+            var parent = toggle.closest('.dropdown-submenu');
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var isOpen = parent.classList.contains('show');
+                document.querySelectorAll('.dropdown-submenu.show').forEach(function(el) {
+                    if (el !== parent) el.classList.remove('show');
+                });
+                parent.classList.toggle('show', !isOpen);
+                toggle.setAttribute('aria-expanded', String(!isOpen));
+            });
+        });
+        document.addEventListener('hidden.bs.dropdown', function(e) {
+            e.target.querySelectorAll('.dropdown-submenu.show').forEach(function(el) {
+                el.classList.remove('show');
             });
         });
     })();
