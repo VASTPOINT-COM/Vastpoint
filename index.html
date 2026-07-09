@@ -1650,17 +1650,18 @@
     ============================================================ */
     function downloadArtChallengeAssets(event) {
         event.preventDefault();
-        // TODO: add RC 10-.mp4 once it's hosted externally (586MB exceeds GitHub's 100MB limit).
+        // RC 10-.mp4 (586MB) exceeds GitHub's 100MB limit, so it's hosted on Dropbox instead.
         var files = [
-            'Land short for linkedin 12.3.mp4',
-            'VASTPOINT ART WB LAND CONFERENCE.jpg',
-            'Exhibition Banner.pdf'
+            { url: 'assets/Land short for linkedin 12.3.mp4', name: 'Land short for linkedin 12.3.mp4' },
+            { url: 'https://www.dropbox.com/scl/fi/z4rhyp3yp37d3hrvenc3s/RC-10.mp4?rlkey=omxvwo1x4lcthyfuf3cg3kff1&st=hfm150x5&dl=1', name: 'RC 10-.mp4' },
+            { url: 'assets/VASTPOINT ART WB LAND CONFERENCE.jpg', name: 'VASTPOINT ART WB LAND CONFERENCE.jpg' },
+            { url: 'assets/Exhibition Banner.pdf', name: 'Exhibition Banner.pdf' }
         ];
-        files.forEach(function(fileName, index) {
+        files.forEach(function(file, index) {
             setTimeout(function() {
                 var link = document.createElement('a');
-                link.href = encodeURI('assets/' + fileName);
-                link.setAttribute('download', fileName);
+                link.href = encodeURI(file.url);
+                link.setAttribute('download', file.name);
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
