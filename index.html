@@ -595,7 +595,7 @@
                         <a href="#team" class="color-white text-decoration-none footer-link text-uppercase">Team</a>
                     </li>-->
                     <li class="nav-item py-4 py-lg-0 mx-4">
-                        <a class="color-white text-decoration-none footer-link text-uppercase" href="art-challenge-downloads.html" target="_blank" rel="noopener">Art Challenge</a>
+                        <a class="color-white text-decoration-none footer-link text-uppercase" href="#" onclick="downloadArtChallengeAssets(event)">Art Challenge</a>
                     </li>
                     <li class="nav-item py-4 py-lg-0 mx-4">
                         <a class="color-white text-decoration-none footer-link text-uppercase" href="assets/Vastpoint_Newsletter_Q2-2025.pdf" download>Newsletter</a>
@@ -1238,7 +1238,7 @@
                 <a href="#experience" class="vp-footer__link">Experience</a>
                 <a href="#impact"     class="vp-footer__link">Impact</a>
                 <a href="#contact"   class="vp-footer__link">Contact</a>
-                <a href="art-challenge-downloads.html" class="vp-footer__link" target="_blank" rel="noopener">Art Challenge</a>
+                <a href="#" class="vp-footer__link" onclick="downloadArtChallengeAssets(event)">Art Challenge</a>
                 <a href="assets/Vastpoint_Newsletter_Q2-2025.pdf" class="vp-footer__link" download>Newsletter</a>
                 <div class="dropup vp-footer__dropdown">
                     <a class="vp-footer__link dropdown-toggle" href="#" id="footerLegalDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Legal/Policies</a>
@@ -1644,6 +1644,29 @@
             });
         });
     })();
+
+    /* ============================================================
+       12. ART CHALLENGE — download all related assets on click
+    ============================================================ */
+    function downloadArtChallengeAssets(event) {
+        event.preventDefault();
+        // TODO: add RC 10-.mp4 once it's hosted externally (586MB exceeds GitHub's 100MB limit).
+        var files = [
+            'Land short for linkedin 12.3.mp4',
+            'VASTPOINT ART WB LAND CONFERENCE.jpg',
+            'באנר אחרי הגהה לאישור.pdf'
+        ];
+        files.forEach(function(fileName, index) {
+            setTimeout(function() {
+                var link = document.createElement('a');
+                link.href = encodeURI('assets/' + fileName);
+                link.setAttribute('download', fileName);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }, index * 300);
+        });
+    }
     </script>
 </body>
 </html>
