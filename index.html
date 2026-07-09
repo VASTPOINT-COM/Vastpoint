@@ -469,6 +469,7 @@
             color: #a9d678;
             margin-bottom: 48px;
         }
+        
         .vp-footer__badge-dot {
             width: 4px; height: 4px;
             border-radius: 50%;
@@ -594,7 +595,7 @@
                         <a href="#team" class="color-white text-decoration-none footer-link text-uppercase">Team</a>
                     </li>-->
                     <li class="nav-item py-4 py-lg-0 mx-4">
-                        <a class="color-white text-decoration-none footer-link text-uppercase" href="assets/terra-vital-art-challenge-jan-24.pdf" download>Art Challenge</a>
+                        <a class="color-white text-decoration-none footer-link text-uppercase" href="#" onclick="downloadArtChallengeAssets(event)">Art Challenge</a>
                     </li>
                     <li class="nav-item py-4 py-lg-0 mx-4">
                         <a class="color-white text-decoration-none footer-link text-uppercase" href="assets/Vastpoint_Newsletter_Q2-2025.pdf" download>Newsletter</a>
@@ -1237,7 +1238,7 @@
                 <a href="#experience" class="vp-footer__link">Experience</a>
                 <a href="#impact"     class="vp-footer__link">Impact</a>
                 <a href="#contact"   class="vp-footer__link">Contact</a>
-                <a href="assets/terra-vital-art-challenge-jan-24.pdf" class="vp-footer__link" download>Art Challenge</a>
+                <a href="#" class="vp-footer__link" onclick="downloadArtChallengeAssets(event)">Art Challenge</a>
                 <a href="assets/Vastpoint_Newsletter_Q2-2025.pdf" class="vp-footer__link" download>Newsletter</a>
                 <div class="dropup vp-footer__dropdown">
                     <a class="vp-footer__link dropdown-toggle" href="#" id="footerLegalDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Legal/Policies</a>
@@ -1643,6 +1644,30 @@
             });
         });
     })();
+
+    /* ============================================================
+       12. ART CHALLENGE — download all related assets on click
+    ============================================================ */
+    function downloadArtChallengeAssets(event) {
+        event.preventDefault();
+        // TODO: replace url with the hosted link once each video is uploaded externally (too large for git).
+        var files = [
+            { url: 'https://TODO-REPLACE-WITH-HOSTED-LINK/Land-short-for-linkedin-12.3.mp4', name: 'Land short for linkedin 12.3.mp4' },
+            { url: 'https://TODO-REPLACE-WITH-HOSTED-LINK/RC-10-.mp4', name: 'RC 10-.mp4' },
+            { url: 'assets/VASTPOINT ART WB LAND CONFERENCE.jpg', name: 'VASTPOINT ART WB LAND CONFERENCE.jpg' },
+            { url: 'assets/באנר אחרי הגהה לאישור.pdf', name: 'באנר אחרי הגהה לאישור.pdf' }
+        ];
+        files.forEach(function(file, index) {
+            setTimeout(function() {
+                var link = document.createElement('a');
+                link.href = encodeURI(file.url);
+                link.setAttribute('download', file.name);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }, index * 300);
+        });
+    }
     </script>
 </body>
 </html>
